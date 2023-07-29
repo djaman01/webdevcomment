@@ -31,7 +31,7 @@ function removeArticle(e) {
 
 function updateTotal() {
   //on accède au 1er cart-items de la page, car même s'il n'y en a qu'1, il le cible avec getElementsByClassName, donc obligé de définir le quel. Il aurait pu faire querySelector
-  var itemsContainer = document.getElementsByClassName('cart-items')[0];
+  var itemsContainer = document.querySelector('.cart-items');
 
   //puis on accède à tous les row/item de ce container
   var cartRows = itemsContainer.getElementsByClassName('cart-row');
@@ -57,14 +57,15 @@ function updateTotal() {
     var quantity= quantityRow.value;
     //on met à jour la variable total avec les nouvelles valeurs qu'on a rendue en nombre
     total += price*quantity;
-  }
-    //On sort de la loop
+
     total=Math.round(total*100)/100; //on arrondi le total ) 2 décimal si prix avec virgule
     
     //Enfin: on veut que le total obtenu soit écrit dans la case total de notre page web
     //!: Il faut rentrer dans le contenu de l'élement avec .innerText
     //!: Ne pas oublier d'ajouter le signe $: car on a tout transformer en nombre, donc il n'apparaitrait pas automatiquement
     document.getElementsByClassName('cart-total-price')[0].innerText='$'+ total;
+  }
+    
     
 }
 
