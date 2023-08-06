@@ -60,12 +60,14 @@ function updateTotal() {
 
     total=Math.round(total*100)/100; //on arrondi le total ) 2 décimal si prix avec virgule
     
-    //Enfin: on veut que le total obtenu soit écrit dans la case total de notre page web
-    //!: Il faut rentrer dans le contenu de l'élement avec .innerText
-    //!: Ne pas oublier d'ajouter le signe $: car on a tout transformer en nombre, donc il n'apparaitrait pas automatiquement
-    document.getElementsByClassName('cart-total-price')[0].innerText='$'+ total;
+   
   }
-    
+   //Enfin: on veut que le total obtenu soit écrit dans la case total de notre page web
+   //On sort de la loo, pour mettre à jour le total une fois tous les calculs fait
+    //!: Il faut rentrer dans le contenu de l'élement avec .innerText
+   //!: Ne pas oublier d'ajouter le signe $: car on a tout transformer en nombre, donc il n'apparaitrait pas automatiquement
+   
+  document.getElementsByClassName('cart-total-price')[0].innerText='$'+ total;
     
 }
 
@@ -116,6 +118,7 @@ function addToCart(e) {
   //we need the price, name and image from the item, because quantity will always be 1 minimum and remoove button will always be there
   var shopItem = buttonAdd.parentElement.parentElement; //obligé car on accède par le target
   var title= shopItem.getElementsByClassName('shop-item-title')[0].innerText;
+
   var price= shopItem.getElementsByClassName('shop-item-price')[0].innerText;
   var imageSrc= shopItem.getElementsByClassName('shop-item-image')[0].src;
 
